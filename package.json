@@ -1,7 +1,7 @@
 {
   "name": "option-select-action",
   "description": "add an option object to a value array or call a fuction based on the object's properties",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "url": "nrw/option-select-action"
   },
@@ -11,8 +11,7 @@
     "test": "tape test/*.js",
     "watch": "nodemon -q -x 'tape test/*.js' | tap-colorize"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "tape": "2.x.x"
   }
