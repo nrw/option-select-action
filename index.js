@@ -1,3 +1,4 @@
+var slice = Array.prototype.slice
 
 module.exports = SelectAction
 
@@ -17,7 +18,8 @@ function select (actions, value, opts, obj) {
   var key = obj[opts.keyField]
 
   if (typeof actions[key] === 'function') {
-    return actions[key](obj)
+    var args = slice.call(arguments, 3)
+    return actions[key].apply(null, args)
   }
 
   value.push(obj)

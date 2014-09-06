@@ -53,3 +53,18 @@ test('with options', function (t) {
 
   t.end()
 })
+
+test('passes arguments', function (t) {
+  var i = ''
+
+  actions = {
+    add: function (obj, a, b) { i += obj.id + a + b }
+  }
+
+  store = SelectAction(actions)
+
+  store.select({id: 'add'}, 'one', 'two')
+  t.equal(i, 'addonetwo')
+
+  t.end()
+})
