@@ -9,6 +9,7 @@ function SelectAction (actions, value, opts) {
 
   return {
     select: select.bind(null, actions, value, opts),
+    pop: pop.bind(null, value),
     toObject: toObject.bind(null, value),
     value: toObject.bind(null, value)
   }
@@ -23,6 +24,10 @@ function select (actions, value, opts, obj) {
   }
 
   value.push(obj)
+}
+
+function pop (value) {
+  return value.pop()
 }
 
 function toObject (value) {

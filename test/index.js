@@ -24,6 +24,12 @@ test('simple usage', function (t) {
 
   store.select({id: 'inc'})
   t.equal(i, 2)
+
+  t.same(store.pop(), {id: 'six'})
+  t.same(store.value(), [{}])
+  store.pop()
+  t.same(store.value(), [])
+
   t.end()
 })
 

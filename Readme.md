@@ -27,4 +27,7 @@ assert.deepEqual(store.value(), [{id: 'six'}])
 
 store.select({id: 'inc'})
 assert.equal(i, 2)
+
+store.pop()
+assert.deepEqual(store.value(), [])
 ```
