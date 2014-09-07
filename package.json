@@ -1,7 +1,7 @@
 {
   "name": "option-select-action",
   "description": "add an option object to a value array or call a fuction based on the object's properties",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": {
     "url": "nrw/option-select-action"
   },
