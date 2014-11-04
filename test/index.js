@@ -14,18 +14,18 @@ test('simple usage', function (t) {
   store.select({})
   t.same(store.value(), [{}])
 
-  store.select({id: 'six'})
-  t.same(store.value(), [{}, {id: 'six'}])
+  store.select({value: 'six'})
+  t.same(store.value(), [{}, {value: 'six'}])
   t.equal(i, 0)
 
-  store.select({id: 'inc'})
+  store.select({value: 'inc'})
   t.equal(i, 1)
-  t.same(store.value(), [{}, {id: 'six'}])
+  t.same(store.value(), [{}, {value: 'six'}])
 
-  store.select({id: 'inc'})
+  store.select({value: 'inc'})
   t.equal(i, 2)
 
-  t.same(store.pop(), {id: 'six'})
+  t.same(store.pop(), {value: 'six'})
   t.same(store.value(), [{}])
   store.pop()
   t.same(store.value(), [])
@@ -41,20 +41,20 @@ test('with options', function (t) {
     dec: function () { i-- }
   }
 
-  initial = [{_id: 'eight'}]
-  store = SelectAction(actions, initial, {keyField: '_id'})
-  t.same(store.value(), [{_id: 'eight'}])
+  initial = [{_value: 'eight'}]
+  store = SelectAction(actions, initial, {keyField: '_value'})
+  t.same(store.value(), [{_value: 'eight'}])
 
-  store.select({_id: 'one'})
-  t.same(store.value(), [{_id: 'eight'}, {_id: 'one'}])
+  store.select({_value: 'one'})
+  t.same(store.value(), [{_value: 'eight'}, {_value: 'one'}])
   t.equal(i, 0)
 
-  store.select({_id: 'inc'})
+  store.select({_value: 'inc'})
   t.equal(i, 1)
-  t.same(store.value(), [{_id: 'eight'}, {_id: 'one'}])
+  t.same(store.value(), [{_value: 'eight'}, {_value: 'one'}])
 
-  store.select({_id: 'dec'})
-  t.same(store.value(), [{_id: 'eight'}, {_id: 'one'}])
+  store.select({_value: 'dec'})
+  t.same(store.value(), [{_value: 'eight'}, {_value: 'one'}])
   t.equal(i, 0)
 
   t.end()
@@ -64,12 +64,12 @@ test('passes arguments', function (t) {
   var i = ''
 
   actions = {
-    add: function (obj, a, b) { i += obj.id + a + b }
+    add: function (obj, a, b) { i += obj.value + a + b }
   }
 
   store = SelectAction(actions)
 
-  store.select({id: 'add'}, 'one', 'two')
+  store.select({value: 'add'}, 'one', 'two')
   t.equal(i, 'addonetwo')
 
   t.end()

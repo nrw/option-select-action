@@ -5,7 +5,7 @@ module.exports = SelectAction
 function SelectAction (actions, value, opts) {
   value = value || []
   opts = opts || {}
-  opts.keyField = opts.keyField || 'id'
+  opts.keyField = opts.keyField || 'value'
 
   return {
     select: select.bind(null, actions, value, opts),
